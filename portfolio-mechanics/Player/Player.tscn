@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ce8n574v2l78r"]
+
+[ext_resource type="Script" uid="uid://b5xyds5rrrbhy" path="res://Player/player.gd" id="1_3qydi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q3lat"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2096488677 node_paths=PackedStringArray("camera")]
+script = ExtResource("1_3qydi")
+camera = NodePath("Camera3D")
+walk_speed = 8.0
+sprint_speed = 12.0
+weapon_damage = 10
+dash_distance = 20.0
+dash_duration = 0.3
+dash_cooldown = 2.0
+dash_fov_bonus = 20.0
+ultimate_damage = 20
+ultimate_range = 20.0
+ultimate_knockback = 40.0
+ultimate_cooldown = 30.0
+ultimate_camera_shake = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1393848177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.009335, 0)
+shape = SubResource("CapsuleShape3D_q3lat")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=587175169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5848229, 0)
+
+[node name="BulletRay" type="RayCast3D" parent="Camera3D" unique_id=918707065]
+target_position = Vector3(0, 0, -100)
